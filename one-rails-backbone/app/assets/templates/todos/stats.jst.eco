@@ -1,0 +1,13 @@
+
+       <span class="todo-count">
+         <span class="number"><%= this.remaining %></span>
+         <span class="word"><%= this.remaining == 1 ? 'item' : 'items' %></span> left.
+       </span>
+
+
+       <span class="todo-clear">
+         <a href="#">
+           Clear <span class="number-done"><%= this.done %></span>
+           completed <span class="word-done"><%= this.done == 1 ? 'item' : 'items' %></span>
+         </a>
+       </span>
