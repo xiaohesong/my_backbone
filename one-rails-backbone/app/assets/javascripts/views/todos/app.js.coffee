@@ -21,7 +21,6 @@ class OneRailsBackbone.Views.App extends Backbone.View
     initialize: ->
       @collection = new OneRailsBackbone.Collections.Todos
       @input    = @$("#new-todo")
-      # new OneRailsBackbone.Views.Todo
       @listenTo(@collection, 'add', @addOne)
       @listenTo(@colzaixianlection, 'reset', @addAll)
       @listenTo(@collection, 'all', @render)
