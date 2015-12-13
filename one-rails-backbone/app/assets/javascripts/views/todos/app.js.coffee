@@ -13,7 +13,6 @@ class OneRailsBackbone.Views.App extends Backbone.View
       "keypress #new-todo":  "createOnEnter"
       "keyup #new-todo":     "showTooltip"
       "click .todo-clear a": "clearCompleted"
-      "click #new-todo": "showClick"
     # At initialization we listen to the relevant events on the `Todos`
     # collection, when items are added or changed. This collection is
     # passed on the constructor of this AppView. Kick things off by
