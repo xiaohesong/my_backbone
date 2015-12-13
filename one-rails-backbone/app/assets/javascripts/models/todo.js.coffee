@@ -1,5 +1,6 @@
 class OneRailsBackbone.Models.Todo extends Backbone.Model
 
+
     defaults:
       content: 'empty todo...'
       done: false
@@ -7,10 +8,11 @@ class OneRailsBackbone.Models.Todo extends Backbone.Model
     # Ensure that each todo created has `content`.
     initialize: ->
         @set('content': @defaults.content) unless @get('content')
+        console.log("Views.Model initialize");
 
     # Toggle the `done` state of this todo item.
     toggle: ->
-      @save(done: !@get('done'))
+      # @save(done: !@get('done'))
 
     # Remove this Todo from *localStorage*
     clear: ->

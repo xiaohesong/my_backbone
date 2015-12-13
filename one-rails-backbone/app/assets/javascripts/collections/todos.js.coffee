@@ -3,6 +3,7 @@
     # Reference to this collection's model.
     model: OneRailsBackbone.Models.Todo
 
+
     # Save all of the todo items under the `"todos"` namespace.
     url: '/api/todos'
 
@@ -23,4 +24,4 @@
     comparator: (todo) ->
       todo.get('order')
 
-  new OneRailsBackbone.Collections.Todos() 
+    # new OneRailsBackbone.Collections.Todos;

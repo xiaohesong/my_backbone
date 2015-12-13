@@ -5,4 +5,4 @@ class OneRailsBackbone.Routers.Todos extends Backbone.Router
 
   showTodoCollectionView: ->
     new OneRailsBackbone.Views.App
-    console.log("***")
+    console.log("Router --1");

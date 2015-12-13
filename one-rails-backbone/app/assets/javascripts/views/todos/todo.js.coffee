@@ -4,8 +4,8 @@
     tagName:  'li'
 
     # Cache the template function for a single item.
-    # template: _.template(todosTemplate)
-    template: JST['todos/todo']
+    # template: _.template("我去啊")
+    template: JST["todos/todos"]
 
     # The DOM events specific to an item.
     events:
@@ -19,12 +19,13 @@
     # a one-to-one correspondence between a **Todo** and a **TodoView** in this
     # app, we set a direct reference on the model for convenience.
     initialize: ->
+      # @collection = new OneRailsBackbone.Collections.Todos
       @listenTo(@model, 'change', @render)
       # in case the model is destroyed via a collection method
       # and not by a user interaction from the DOM, the view
       # should remove itself
       @listenTo(@model, 'destroy', @remove)
-
+      console.log("views todo -- Todo");
     # Re-render the contents of the todo item.
     # To avoid XSS (not that it would be harmful in this particular app),
     # we use underscore's "<%-" syntax in template to set the contents of the todo item.
@@ -32,7 +33,7 @@
       @$el.html(@template(@model.toJSON()))
       @cacheInput()
       @
-
+      
     cacheInput: ->
       @$input = @$('.todo-input')
 
