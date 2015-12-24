@@ -1,9 +1,8 @@
 class Api::TodosController < ApplicationController
-  # respond_to :json
+  respond_to :json
 
   def index
-    p '='*40
-    # respond_with @todo, location: nil
-    render json: { xx: 'xx' }
+    @todos = Todo.all
+    respond_with @todos, location: nil
   end
 end

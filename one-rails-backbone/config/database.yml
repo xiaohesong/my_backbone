@@ -15,7 +15,7 @@ development:
   <<: *default
   database: one-rails-backbone
   username: postgres
-  password: oss
+  password: 123456
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".

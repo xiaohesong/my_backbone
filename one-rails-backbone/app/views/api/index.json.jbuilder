@@ -1,1 +1,3 @@
-json.array! @todo, :id, :content, :done
+json.array! @todos do |todo|
+  json.(todo, :id, :content, :status)
+end
