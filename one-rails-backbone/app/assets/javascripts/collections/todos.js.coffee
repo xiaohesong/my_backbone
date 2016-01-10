@@ -23,5 +23,3 @@
     # Todos are sorted by their original insertion order.
     comparator: (todo) ->
       todo.get('order')
-
-    # new OneRailsBackbone.Collections.Todos;

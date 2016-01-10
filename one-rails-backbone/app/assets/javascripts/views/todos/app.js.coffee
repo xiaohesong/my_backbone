@@ -13,24 +13,16 @@ class OneRailsBackbone.Views.App extends Backbone.View
       "keypress #new-todo":  "createOnEnter"
       "keyup #new-todo":     "showTooltip"
       "click .todo-clear a": "clearCompleted"
-    # At initialization we listen to the relevant events on the `Todos`
-    # collection, when items are added or changed. This collection is
-    # passed on the constructor of this AppView. Kick things off by
-    # loading any preexisting todos that might be saved in *localStorage*.
+
     initialize: ->
       @collection = new OneRailsBackbone.Collections.Todos
       @input    = @$("#new-todo")
       @listenTo(@collection, 'add', @addOne)
-      @listenTo(@colzaixianlection, 'reset', @addAll)
+      @listenTo(@collection, 'reset', @addAll)
       @listenTo(@collection, 'all', @render)
       # console.log("Views App -- initialize");
       @collection.fetch()
 
-    showClick: ->
-      alert("what");
-
-    # Re-rendering the App just means refreshing the statistics -- the rest
-    # of the app doesn't change.
     render: ->
       done = @collection.done().length
       # console.log("View App Render");
@@ -40,26 +32,21 @@ class OneRailsBackbone.Views.App extends Backbone.View
         remaining:  @collection.remaining().length
       ))
 
-
-    # Add a single todo item to the list by creating a view for it, and
-    # appending its element to the `<ul>`.
     addOne: (todo) ->
       view = new OneRailsBackbone.Views.Todo(model: todo)
       console.log("Views App --addOne (el)");
       @$('#todo-list').append view.render().el
-    # Add all items in the **Todos** collection at once.
+
     addAll: ->
       @collection.each @addOne
       console.log("Views App --addAll");
 
-    # Generate the attributes for a new Todo item.
     newAttributes: ->
       content: @input.val()
       order:   @collection.nextOrder()
       done:    false
       console.log("Views Todos --newAttributes");
-    # If you hit return in the main input field, create new **Todo** model
-    # persisting it to *localStorage*.
+
     createOnEnter: (e) ->
       return if e.keyCode != 13
       @collection.create @newAttributes()
@@ -71,8 +58,6 @@ class OneRailsBackbone.Views.App extends Backbone.View
       _.each(@collection.done(), (todo) -> todo.clear() )
       false
 
-    # Lazily show the tooltip that tells you to press `enter` to save
-    # a new todo item, after one second.
     showTooltip: ->
       tooltip = @$('.ui-tooltip-top')
       val = @input.val()
@@ -82,3 +67,6 @@ class OneRailsBackbone.Views.App extends Backbone.View
       show = () -> tooltip.show().fadeIn()
       @tooltipTimeout = _.delay(show, 1000)
       console.log("View App showTooltip")
+
+
+      # new OneRailsBackbone.Views.App

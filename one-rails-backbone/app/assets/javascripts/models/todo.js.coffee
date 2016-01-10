@@ -12,7 +12,7 @@ class OneRailsBackbone.Models.Todo extends Backbone.Model
 
     # Toggle the `done` state of this todo item.
     toggle: ->
-      # @save(done: !@get('done'))
+      @save(done: !@get('done'))
 
     # Remove this Todo from *localStorage*
     clear: ->
