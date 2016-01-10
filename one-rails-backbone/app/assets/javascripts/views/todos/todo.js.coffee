@@ -33,7 +33,7 @@
       @$el.html(@template(@model.toJSON()))
       @cacheInput()
       @
-      
+
     cacheInput: ->
       @$input = @$('.todo-input')
 
