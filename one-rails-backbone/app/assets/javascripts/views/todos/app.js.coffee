@@ -25,6 +25,7 @@ class OneRailsBackbone.Views.App extends Backbone.View
     # of the app doesn't change.
     render: ->
       done = @collection.done().length
+      # console.log("View App Render");
       @$('#todo-stats').html(@template(
         total:      @collection.length
         done:       @collection.done().length

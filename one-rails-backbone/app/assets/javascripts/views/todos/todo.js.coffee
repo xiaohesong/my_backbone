@@ -10,7 +10,7 @@
       "dblclick div.todo-content" : "edit"
       "click span.todo-destroy"   : "clear"
       "keypress .todo-input"      : "updateOnEnter"
-      'blur input': 'close'
+      'blur input'                : 'close'
       # "click #new-todo": "new"
 
     initialize: ->
