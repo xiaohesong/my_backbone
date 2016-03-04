@@ -6,7 +6,7 @@ class OneRailsBackbone.Models.Todo extends Backbone.Model
       done: false
 
     initialize: ->
-        @set('content': @defaults.content) unless @get('content')
+      @set('content': @defaults.content) unless @get('content')
         # console.log("Views.Model initialize");
 
     toggle: ->
