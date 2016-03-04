@@ -7,22 +7,16 @@ class OneRailsBackbone.Views.App extends Backbone.View
       "keypress #new-todo":  "createOnEnter"
       "keyup #new-todo":     "showTooltip"
       "click .todo-clear a": "clearCompleted"
-      "click #new-todo": "new"
 
     initialize: ->
       @collection = new OneRailsBackbone.Collections.Todos
       @input    = @$("#new-todo")
       @listenTo(@collection, 'add', @addOne)
-      @listenTo(@colzaixianlection, 'reset', @addAll)
+      @listenTo(@collection, 'reset', @addAll)
       @listenTo(@collection, 'all', @render)
       # console.log("Views App -- initialize");
       @collection.fetch()
 
-    new: ->
-      alert("woqu");
-
-    # Re-rendering the App just means refreshing the statistics -- the rest
-    # of the app doesn't change.
     render: ->
       done = @collection.done().length
       @$('#todo-stats').html(@template(
