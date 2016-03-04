@@ -1,31 +1,36 @@
 class OneRailsBackbone.Views.App extends Backbone.View
-    el: $('#todoapp')
+    # el: $('#todoapp')
+    el: '#todoapp'
 
-    template: JST["todos/todos"]
+    template: JST["todos/index"]
+    # template: JST["todos/todos"]
 
     events:
       "keypress #new-todo":  "createOnEnter"
       "keyup #new-todo":     "showTooltip"
-      "click .todo-clear a": "clearCompleted"
+      # "click .todo-clear a": "clearCompleted"
       "click #new-todo": "new"
 
     initialize: ->
       @collection = new OneRailsBackbone.Collections.Todos
+      # @view_todo = new OneRailsBackbone.Views.Todo collection: @collection
       @input    = @$("#new-todo")
       @listenTo(@collection, 'add', @addOne)
-      @listenTo(@colzaixianlection, 'reset', @addAll)
+      @listenTo(@collection, 'reset', @addAll)
       @listenTo(@collection, 'all', @render)
       # console.log("Views App -- initialize");
       @collection.fetch()
 
     new: ->
-      alert("woqu");
+      console.log("无效!")
+
 
     # Re-rendering the App just means refreshing the statistics -- the rest
     # of the app doesn't change.
     render: ->
+      # console.log(@view_todo)
       done = @collection.done().length
-      # console.log("View App Render");
+      # console.log("View App Render")
       @$('#todo-stats').html(@template(
         total:      @collection.length
         done:       @collection.done().length
@@ -34,7 +39,7 @@ class OneRailsBackbone.Views.App extends Backbone.View
 
     addOne: (todo) ->
       view = new OneRailsBackbone.Views.Todo(model: todo)
-      # console.log("Views App --addOne (el)");
+      console.log("Views App --addOne (el)");
       @$('#todo-list').append view.render().el
 
     addAll: ->
@@ -46,7 +51,6 @@ class OneRailsBackbone.Views.App extends Backbone.View
       done:    false
 
     createOnEnter: (e) ->
-      alert("keng");
       return if e.keyCode != 13
       @collection.create @newAttributes()
       @input.val('')

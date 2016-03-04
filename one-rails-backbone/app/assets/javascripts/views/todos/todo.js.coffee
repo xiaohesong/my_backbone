@@ -11,18 +11,24 @@
       "click span.todo-destroy"   : "clear"
       "keypress .todo-input"      : "updateOnEnter"
       'blur input'                : 'close'
-      # "click #new-todo": "new"
+      "click #new-todo"           : "new"
 
     initialize: ->
+      # console.log("View Todo Render")
       @listenTo(@model, 'change', @render)
       @listenTo(@model, 'destroy', @remove)
 
     render: ->
+      # console.log("View Todo Render")
       @$el.html(@template(@model.toJSON()))
       @cacheInput()
       @
 
+    new: ->
+      console.log("xianshi?");
+
     cacheInput: ->
+      console.log("Views-Todo")
       @$input = @$('.todo-input')
 
     toggleDone: ->
