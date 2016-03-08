@@ -2,8 +2,7 @@ class OneRailsBackbone.Views.App extends Backbone.View
     # el: $('#todoapp')
     el: '#todoapp'
 
-    template: JST["todos/index"]
-    # template: JST["todos/todos"]
+    template: JST["todos/stats"]
 
     events:
       "keypress #new-todo":  "createOnEnter"
