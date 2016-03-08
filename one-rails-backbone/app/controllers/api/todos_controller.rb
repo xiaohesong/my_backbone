@@ -12,6 +12,12 @@ class Api::TodosController < ApplicationController
     respond_with @todos, location: nil
   end
 
+  def update
+    @todo = Todo.find(params[:id])
+    @todo.status!
+    respond_with @todos, location: nil
+  end
+
   private
   def params_permit
     params.require(:todo).permit(:content)
