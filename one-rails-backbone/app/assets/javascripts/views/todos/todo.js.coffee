@@ -32,6 +32,7 @@
       @$input = @$('.todo-input')
 
     toggleDone: ->
+      console.log("toggleDone")
       @model.toggle()
 
     edit: ->
